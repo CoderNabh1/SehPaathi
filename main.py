@@ -22,7 +22,10 @@ if not api_key:
 # -------------------------------
 # 🤖 Create Client
 # -------------------------------
-client = genai.Client(api_key=api_key)
+client = genai.Client(
+    api_key=api_key,
+    http_options=types.HttpOptions(api_version="v1beta")
+)
 
 # Optional grounding tool
 grounding_tool = types.Tool(
