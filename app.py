@@ -159,7 +159,10 @@ def build_client():
     if not api_key:
         st.error("❌ GEMINI_API_KEY not found. Add it to your .env file.")
         st.stop()
-    return genai.Client(api_key=api_key)
+    return genai.Client(
+        api_key=api_key,
+        http_options=types.HttpOptions(api_version="v1beta")
+    )
 
 client = build_client()
 
